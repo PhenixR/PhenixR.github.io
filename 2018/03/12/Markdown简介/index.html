@@ -439,6 +439,23 @@ A backtick-delimited string in a code span: `` `foo` ``
 <!-- City版安装代码已完成 -->
     
     
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        // id: "Markdown 简介", // 可选。默认为 location.href
+        owner: 'PhenixR',
+        repo: 'git@github.com:PhenixR/PhenixR.github.io.git',
+        oauth: {
+            client_id: '54eac5627718b54f058c',
+            client_secret: '664d76f847459bcf4039468deeeb6c075f489a0a',
+        },
+    })
+    gitment.render('container')
+
+</script>
+
     <!--PC版-->
 
     <!--PC版-->
