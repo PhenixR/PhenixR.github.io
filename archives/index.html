@@ -299,6 +299,39 @@
     
     
         <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/15/在vue中使用sass/" >
+                
+                    <span>在Vue中使用sass</span>
+            </a>
+            <div class="abstract-content">
+                1.创建一个Vue项目
+$ vue init webpack your-project
+
+2.安装依赖
+$ cd your-project$ npm install
+
+3.安装sass依赖包
+npm install –save-dev sass-loadernpm install –save-dev node-sass
+
+4.在build文件夹下的ebpack.base.conf.js的rules里面添加配置
+{  test: /\.sass$/,  loaders: [‘style’, ‘css’, ‘sass’]}如下图所示：
+
+5.在Vue中修改style标签
+&lt;style ...
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/15</span>
+                </div>
+                <!-- tags  -->
+                
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="abstract-title" href = "/2018/03/12/Markdown简介/" >
                 
                     <span>Markdown 简介</span>
@@ -441,7 +474,16 @@ This is an H2
     
     
     
-    <div class="total-archive"> Total : 2 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 3 </div>
     
     <div class="post-archive">
     
@@ -450,6 +492,11 @@ This is an H2
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/15</span><a class="archive-post-title" href= "/2018/03/15/在vue中使用sass/" >在Vue中使用sass</a>
+        </li>
     
     
         <li class="archive-post-item">
