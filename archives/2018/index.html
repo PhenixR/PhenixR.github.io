@@ -299,6 +299,40 @@
     
     
         <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/20/Promise/" >
+                
+                    <span>Promise 对象</span>
+            </a>
+            <div class="abstract-content">
+                基本用法Promise对象可以将异步操作以同步操作的方式展现出来，避免了层层嵌套的回调函数。Promise对象基本用法
+var promise = new Promise (function(resolve,reject) {
+    if(/*异步操作成功*/){
+        resolve(value);
+    }else{
+        reject(error);
+    }
+});
+
+promise.then(function(value) {
+    //success
+},function(value) {
+    //failure
+});
+Promise.pro...
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/20</span>
+                </div>
+                <!-- tags  -->
+                
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="abstract-title" href = "/2018/03/15/在vue中使用sass/" >
                 
                     <span>在Vue中使用sass</span>
@@ -483,7 +517,16 @@ This is an H2
     
     
     
-    <div class="total-archive"> Total : 3 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 4 </div>
     
     <div class="post-archive">
     
@@ -492,6 +535,11 @@ This is an H2
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/20</span><a class="archive-post-title" href= "/2018/03/20/Promise/" >Promise 对象</a>
+        </li>
     
     
         <li class="archive-post-item">

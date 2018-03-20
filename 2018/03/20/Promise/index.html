@@ -9,7 +9,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
-    <title>Rick&#39;s Studio</title>
+    <title>Promise 对象 · Rick&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -251,14 +251,23 @@
 </head>
 
     
-        <body class="home-body">
+        <body class="post-body">
     
     
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Rick&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Promise 对象</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Rick's Studio.</a>
 </header>
@@ -279,17 +288,17 @@ height:50vh;
     <!-- 主页  -->
     
     
-    <!-- 文章页  -->
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Rick's Studio.
-            <!-- 文章页  -->
+            Promise 对象
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
@@ -297,30 +306,46 @@ height:50vh;
             <!-- 主页副标题  -->
             
             
-                it's better to burn out than to fade away
-            
-            <!-- 文章页  -->
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/03/20</span>
+                
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe602;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                    <span class="shareText">Share</span>
+                    <ul class="shareList">
+                        <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                            <div class="share-qrcode"></div>
+                        </li>
+                        <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                        <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                        <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                        <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                    </ul>
+                </span>
+            </div>
         
     </div>
 </div>
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
 
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/03/20/Promise/" >
-                
-                    <span>Promise 对象</span>
-            </a>
-            <div class="abstract-content">
-                基本用法Promise对象可以将异步操作以同步操作的方式展现出来，避免了层层嵌套的回调函数。Promise对象基本用法
-var promise = new Promise (function(resolve,reject) {
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>Promise对象可以将异步操作以同步操作的方式展现出来，避免了层层嵌套的回调函数。<br>Promise对象基本用法</p>
+<pre><code>var promise = new Promise (function(resolve,reject) {
     if(/*异步操作成功*/){
         resolve(value);
     }else{
@@ -333,176 +358,73 @@ promise.then(function(value) {
 },function(value) {
     //failure
 });
-Promise.pro...
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/20</span>
-                </div>
-                <!-- tags  -->
-                
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/03/15/在vue中使用sass/" >
-                
-                    <span>在Vue中使用sass</span>
-            </a>
-            <div class="abstract-content">
-                1.创建一个Vue项目
-$ vue init webpack your-project
+</code></pre><h2 id="Promise-prototype-then方法：链式操作"><a href="#Promise-prototype-then方法：链式操作" class="headerlink" title="Promise.prototype.then方法：链式操作"></a>Promise.prototype.then方法：链式操作</h2><p>Promise.prototype.then方法是返回一个新的Promise对象，因此可以采用链式写法</p>
+<pre><code>getJSON(&quot;/posts.json&quot;).then(function(json) {
+    return json.post;
+}).then(function(post) {
+    // proceed
+});
+</code></pre><p>上面的代码依次制定了两个回调函数，第一个回调函数完成后会将结果作为参数传入第二个回调函数，如果第一个函数是Promise对象，那么第二个回调函数会等待Promise对象有了运行结果之后再进行进一步调用。</p>
+<h2 id="Promise-prototype-catch方法：捕捉错误"><a href="#Promise-prototype-catch方法：捕捉错误" class="headerlink" title="Promise.prototype.catch方法：捕捉错误"></a>Promise.prototype.catch方法：捕捉错误</h2><p>Promise.prototype.catch方法是Promise.prototype.then(null,rejection)的别名，用于指定发生错误时的回调函数。Promise对象的错误有“冒泡性质”，会一直向后传递，直到被捕获位置。</p>
+<pre><code>getJSON(&quot;/posts.json&quot;).then(function(posts) {
+// some code
+}).catch(function(error) {
+// 处理前一个回调函数运行时发生的错误
+console.log(&apos;发生错误！&apos;, error);
+});
+</code></pre><h2 id="Promise-all方法，Promise-race方法"><a href="#Promise-all方法，Promise-race方法" class="headerlink" title="Promise.all方法，Promise.race方法"></a>Promise.all方法，Promise.race方法</h2><p>Promise.all方法用于将多个Promise实例包装成一个新的Promise实例</p>
+<pre><code>var p = Promise.all([p1,p2,p3]);
+</code></pre><p>p1,p2,p3都是Promise对象的实例。（Promise.all方法参数不一定是数组但是必须是具有iterator借口，且返回的每个成员都是Promise实例。）<br>p的状态由p1,p2,p3决定，只有当p1,p2,p3的状态都变为fulfilled，p的状态才会变成fulfilled，此时p1,p2,p3的返回值会组成一个数组传递给p的回调函数。<br>只要p1,p2,p3中有一个被rejected，p的状态就就会变为rejected，此时第一个被reject的实例的返回值会传递给p的回调函数</p>
+<p>Promise.race方法同样是将多个Promise实例包装成一个新的Promise实例。</p>
+<pre><code>var p = Promise.race([p1,p2,p3]);
+</code></pre><p>只要p1,p2,p3中有一个率先改变状态，p的状态就随之改变，率先改变的Promise实例的返回值就传递给p的返回值。</p>
+<h2 id="Promise-resolve方法，Promise-reject方法"><a href="#Promise-resolve方法，Promise-reject方法" class="headerlink" title="Promise.resolve方法，Promise.reject方法"></a>Promise.resolve方法，Promise.reject方法</h2><p>Promise.resolve与Promise.reject方法都是将现有对象转化为Promise对象，Promise.resolve返回的Promise对象状态为fulfilled，Promise.reject返回的Promise对象的状态为rejected。</p>
+<pre><code>var p = Promise.resolve(&apos;Hello&apos;);
 
-2.安装依赖
-$ cd your-project$ npm install
+p.then(function (s){
+console.log(s)
+});
+// Hello
 
-3.安装sass依赖包
-npm install –save-dev sass-loadernpm install –save-dev node-sass
+var p = Promise.reject(&apos;出错了&apos;);
 
-4.在build文件夹下的ebpack.base.conf.js的rules里面添加配置
-{  test: /\.sass$/,  loaders: [‘style’, ‘css’, ‘sass’]}如下图所示：
+p.then(null, function (s){
+console.log(s)
+});
+// 出错了 
+</code></pre><h2 id="async函数"><a href="#async函数" class="headerlink" title="async函数"></a>async函数</h2><p>async函数是用来取代回调函数的一种方法。</p>
+<p>在函数明前加上async关键字就表明该函数内部有异步操作，该异步操作返回一个Promise对象，前面用await关键字注明。当函数执行的时候，一旦遇到await关键字就会先返回，等待异步操作完成然后在继续执行函数后面的语句。</p>
 
-5.在Vue中修改style标签
-&lt;style ...
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/15</span>
-                </div>
-                <!-- tags  -->
-                
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/03/12/Markdown简介/" >
-                
-                    <span>Markdown 简介</span>
-            </a>
-            <div class="abstract-content">
-                Markdown 是一种适用于网络的书写语言，让文档更容易读、写和改动。Markdown的语法种类很少，只对应Html的一小部分。相对来说Html是一种发布的格式，而Markdown是一种书写格式，Markdown的格式语法只涵盖文本可以覆盖的范围，在某些方面更佳灵巧易用。
-详细语法教程请移步Markdown 语法说明，这里只做简单的介绍。
-Markdown 语法测试（实例）区块元素标题This is an H1This is an H2This is an H1
-=============
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/03/15/在vue中使用sass/" title= 在Vue中使用sass >
+                    <div class="prevTitle">在Vue中使用sass</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
 
-This is an H2
--------------
-这是H1这是H2这是H3# 这是H1
-...
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/12</span>
-                </div>
-                <!-- tags  -->
-                
-            </div>
-        </article>
+<!-- City版安装代码已完成 -->
     
     
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/03/11/hello-world/" >
-                
-                    <span>Hello World</span>
-            </a>
-            <div class="abstract-content">
-                HELLOW WORLD!
+    <!--PC版-->
 
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/11</span>
-                </div>
-                <!-- tags  -->
-                
-            </div>
-        </article>
+    <!--PC版-->
+
+
     
-    <!-- paginator  -->
-    
+    <!-- 评论 -->
 </main>
             <!-- profile -->
-            
-            <div class="profile">
-    <img class="profile-avatar" src= /avatar/mind.GIF >
-    <div class="profile-name">Rick</div>
-    
-    <div class="profile-signature">
-        witness me
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
-            
-                <a href="mailto:wksgs1@foxmail.com" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="//github.com/PhenixR" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href= //github.com/cyan33 target="_black">Chang Yan</a>
-                    </span>
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
-</div>
             
         </div>
         <footer class="footer footer-unloaded">
@@ -566,6 +488,24 @@ This is an H2
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本用法"><span class="toc-number">1.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-prototype-then方法：链式操作"><span class="toc-number">2.</span> <span class="toc-text">Promise.prototype.then方法：链式操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-prototype-catch方法：捕捉错误"><span class="toc-number">3.</span> <span class="toc-text">Promise.prototype.catch方法：捕捉错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-all方法，Promise-race方法"><span class="toc-number">4.</span> <span class="toc-text">Promise.all方法，Promise.race方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-resolve方法，Promise-reject方法"><span class="toc-number">5.</span> <span class="toc-text">Promise.resolve方法，Promise.reject方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#async函数"><span class="toc-number">6.</span> <span class="toc-text">async函数</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -701,6 +641,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
     
     </body>
 </html>
