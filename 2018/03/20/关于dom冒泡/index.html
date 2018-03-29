@@ -9,7 +9,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
-    <title>Markdown 简介 · Rick&#39;s Studio</title>
+    <title>关于dom冒泡 · Rick&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -265,7 +265,7 @@
                 <a href="/" >Rick&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Markdown 简介</a>
+                <a href="#" class="post-name">关于dom冒泡</a>
             </div>
     </div>
     
@@ -297,7 +297,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Markdown 简介
+            关于dom冒泡
             <!-- 404 -->
             
         </h1>
@@ -315,7 +315,7 @@ height:50vh;
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/03/12</span>
+                <span class="post-intro-time">2018/03/20</span>
                 
                 <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                     <span class="iconfont-archer">&#xe602;</span>
@@ -344,96 +344,39 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>Markdown 是一种适用于网络的书写语言，让文档更容易读、写和改动。Markdown的语法种类很少，只对应Html的一小部分。相对来说Html是一种发布的格式，而Markdown是一种书写格式，Markdown的格式语法只涵盖文本可以覆盖的范围，在某些方面更佳灵巧易用。</p>
-<p>详细语法教程请移步<a href="https://www.appinn.com/markdown/" title="Markdown 语法说明" target="_blank" rel="noopener">Markdown 语法说明</a>，这里只做简单的介绍。</p>
-<h1 id="Markdown-语法测试（实例）"><a href="#Markdown-语法测试（实例）" class="headerlink" title="Markdown 语法测试（实例）"></a>Markdown 语法测试（实例）</h1><h1 id="区块元素"><a href="#区块元素" class="headerlink" title="区块元素"></a>区块元素</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><h1 id="This-is-an-H1"><a href="#This-is-an-H1" class="headerlink" title="This is an H1"></a>This is an H1</h1><h2 id="This-is-an-H2"><a href="#This-is-an-H2" class="headerlink" title="This is an H2"></a>This is an H2</h2><pre><code>This is an H1
-=============
+        <p>要了解关于dom冒泡，首先要了解一下什么是事件流，以及DOM事件的流的三个阶段。</p>
+<p>简单来说流就是具有方向的数据</p>
+<h2 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h2><p>考虑一个问题：当你点击一个网页中按钮时，时按钮最外层的父元素先收到事件并执行还是，按钮先收到事件并执行。事件流所描述的就是从网页接受事件的顺序，因此事件流也有两种。分别是事件冒泡与事件捕获。</p>
+<h2 id="事件冒泡与事件捕获"><a href="#事件冒泡与事件捕获" class="headerlink" title="事件冒泡与事件捕获"></a>事件冒泡与事件捕获</h2><p>事件冒泡是由最具体的元素接受（事件所发生的节点），然后逐级像上层父级元素传递。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;test&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;button&gt;Click Me&lt;/button&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>点击button，事件冒泡的触发顺序是button-&gt;body-&gt;document-&gt;window。而事件捕获的顺序则正好相反。</p>
+<h2 id="DOM事件流"><a href="#DOM事件流" class="headerlink" title="DOM事件流"></a>DOM事件流</h2><p>DOM事件流包含三个阶段<br>1.事件捕获阶段<br>2.处于目标阶段<br>3.事件冒泡阶段</p>
 
-This is an H2
--------------
-</code></pre><h1 id="这是H1"><a href="#这是H1" class="headerlink" title="这是H1"></a>这是H1</h1><h2 id="这是H2"><a href="#这是H2" class="headerlink" title="这是H2"></a>这是H2</h2><h3 id="这是H3"><a href="#这是H3" class="headerlink" title="这是H3"></a>这是H3</h3><pre><code># 这是H1
-
-## 这是H2
-
-### 这是H3
-</code></pre><h1 id="区块引用-Blockquotes"><a href="#区块引用-Blockquotes" class="headerlink" title="区块引用 Blockquotes"></a>区块引用 Blockquotes</h1><blockquote>
-<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,</p>
-<blockquote>
-<p>consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.<br>Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
-</blockquote>
-<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse<br>id sem consectetuer libero luctus adipiscing.</p>
-</blockquote>
-<pre><code>&gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
-&gt;&gt; consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
-&gt;&gt; Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
-&gt; 
-&gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
-&gt; id sem consectetuer libero luctus adipiscing.
-</code></pre><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><ul>
-<li>red</li>
-<li>green</li>
-<li>blue<pre><code>*   red
-*   green
-*   blue
-</code></pre></li>
-</ul>
-<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><ol>
-<li>red</li>
-<li>green</li>
-<li>blue<pre><code>1.   red
-2.   green
-3.   blue
-</code></pre></li>
-</ol>
-<h2 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h2><p>分隔线示例</p>
-<hr>
-<p>分隔线示例</p>
-<hr>
-<p>分隔线示例</p>
-<hr>
-<pre><code>分隔线示例
-- - -
-分隔线示例
-***
-分隔线示例
-* * *
-</code></pre><h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><p><em>single asterisks</em></p>
-<p><em>single underscores</em></p>
-<p><strong>double asterisks</strong></p>
-<p><strong>double underscores</strong></p>
-<pre><code>*single asterisks*
-
-_single underscores_
-
-**double asterisks**
-
-__double underscores__
-</code></pre><h1 id="区块元素-1"><a href="#区块元素-1" class="headerlink" title="区块元素"></a>区块元素</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>Use the <code>printf()</code> function.</p>
-<pre><code>Use the `printf()` function.
-</code></pre><p><code>There is a literal backtick (`) here.</code></p>
-<pre><code>``There is a literal backtick (`) here.``
-</code></pre><p>A single backtick in a code span: <code>`</code></p>
-<p>A backtick-delimited string in a code span: <code>`foo`</code></p>
-<pre><code>A single backtick in a code span: `` ` ``
-
-A backtick-delimited string in a code span: `` `foo` ``
-</code></pre>
     </article>
     <!-- 前后页  -->
     <ul class="post-paginator">
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2018/03/15/在vue中使用sass/" title= 在Vue中使用sass >
-                    <div class="nextTitle">在Vue中使用sass</div>
+                <a href= "/2018/03/29/排序算法/" title= 排序算法 >
+                    <div class="nextTitle">排序算法</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2018/03/11/hello-world/" title= Hello World >
-                    <div class="prevTitle">Hello World</div>
+                <a href= "/2018/03/20/Promise/" title= Promise 对象 >
+                    <div class="prevTitle">Promise 对象</div>
                 </a>
             
         </li>
@@ -532,7 +475,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-语法测试（实例）"><span class="toc-number">1.</span> <span class="toc-text">Markdown 语法测试（实例）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#区块元素"><span class="toc-number">2.</span> <span class="toc-text">区块元素</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#标题"><span class="toc-number">2.1.</span> <span class="toc-text">标题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#This-is-an-H1"><span class="toc-number">3.</span> <span class="toc-text">This is an H1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#This-is-an-H2"><span class="toc-number">3.1.</span> <span class="toc-text">This is an H2</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#这是H1"><span class="toc-number">4.</span> <span class="toc-text">这是H1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#这是H2"><span class="toc-number">4.1.</span> <span class="toc-text">这是H2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#这是H3"><span class="toc-number">4.1.1.</span> <span class="toc-text">这是H3</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#区块引用-Blockquotes"><span class="toc-number">5.</span> <span class="toc-text">区块引用 Blockquotes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#列表"><span class="toc-number">5.1.</span> <span class="toc-text">列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#无序列表"><span class="toc-number">5.1.1.</span> <span class="toc-text">无序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有序列表"><span class="toc-number">5.1.2.</span> <span class="toc-text">有序列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分隔线"><span class="toc-number">5.2.</span> <span class="toc-text">分隔线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#强调"><span class="toc-number">5.3.</span> <span class="toc-text">强调</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#区块元素-1"><span class="toc-number">6.</span> <span class="toc-text">区块元素</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-number">6.1.</span> <span class="toc-text">代码</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#事件流"><span class="toc-number">1.</span> <span class="toc-text">事件流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件冒泡与事件捕获"><span class="toc-number">2.</span> <span class="toc-text">事件冒泡与事件捕获</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM事件流"><span class="toc-number">3.</span> <span class="toc-text">DOM事件流</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
